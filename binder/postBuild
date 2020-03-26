@@ -4,5 +4,5 @@ files='ca_xwalk.csv'
 
 for file in $files
 do
-  gunzip ~/data/${file}.gz
+  gunzip ~/${file}.gz
 done
