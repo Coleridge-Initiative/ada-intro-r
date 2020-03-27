@@ -1,6 +1,6 @@
 #!/bin/bash
 
-files='ca_xwalk.csv'
+files='ca_wac_S000_JT00_2015.csv ca_rac_S000_JT00_2015.csv ca_od_main_JT00_2015.csv ca_xwalk.csv'
 
 for file in $files
 do
