@@ -1,8 +1,21 @@
 #!/bin/bash
 
-files='ca_wac_S000_JT00_2015.csv ca_rac_S000_JT00_2015.csv ca_od_main_JT00_2015.csv ca_xwalk.csv'
+files='wac rac'
+states='ca il md ky'
 
 for file in $files
 do
-  gunzip ~/${file}.gz
+  for state in $states
+  do
+    wget https://lehd.ces.census.gov/data/lodes/LODES7/${state}/${file}/${state}_${file}_S000_JT00_2015.csv.gz
+    gunzip ~/${state}_${file}_S000_JT00_2015.csv.gz
+  done
+done
+
+for state in $states
+do
+  wget https://lehd.ces.census.gov/data/lodes/LODES7/${state}/od/${state}_od_main_JT00_2015.csv.gz
+  gunzip ~/${state}_od_main_JT00_2015.csv.gz
+  wget https://lehd.ces.census.gov/data/lodes/LODES7/${state}/${state}_xwalk.csv.gz
+  gunzip ~/${state}_xwalk.csv.gz
 done
